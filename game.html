@@ -66,7 +66,7 @@ select, button {
     <button onclick="generatePlan()">Generate My Trip</button>
 
     <div class="card">
-        <div id="result">Your AI travel plan will appear here ✈️</div>
+        <div id="result">Your travel plan will appear here ✈️</div>
     </div>
 </div>
 
@@ -96,7 +96,6 @@ function generatePlan() {
     document.getElementById("result").innerHTML =
         "🌍 Destination: <b>" + place + "</b><br><br>" +
         "🎯 Suggested Activity: " + activities[mood] + "<br><br>" +
-        "✨ AI Tip: Pack light, stay flexible, and enjoy the experience!";
 }
 </script>
 
