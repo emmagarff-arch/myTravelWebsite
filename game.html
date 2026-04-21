@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Mood Explorer App</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: linear-gradient(to right, #dfe9f3, #ffffff);
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    background: #4a90e2;
+    color: white;
+    padding: 20px;
+    margin: 0;
+}
+
+.container {
+    margin-top: 50px;
+}
+
+select, button {
+    padding: 10px;
+    font-size: 16px;
+    margin: 10px;
+}
+
+.card {
+    margin: 30px auto;
+    padding: 20px;
+    width: 60%;
+    background: white;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+    border-radius: 10px;
+}
+
+#result {
+    font-size: 18px;
+    margin-top: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>🌍 Mood Explorer</h1>
+
+<div class="container">
+    <p>Pick your mood and get an AI travel idea!</p>
+
+    <select id="mood">
+        <option value="relaxed">Relaxed 😌</option>
+        <option value="adventurous">Adventurous 🧗</option>
+        <option value="romantic">Romantic ❤️</option>
+        <option value="curious">Curious 🤔</option>
+        <option value="energetic">Energetic ⚡</option>
+    </select>
+
+    <br>
+
+    <button onclick="generatePlan()">Generate My Trip</button>
+
+    <div class="card">
+        <div id="result">Your AI travel plan will appear here ✈️</div>
+    </div>
+</div>
+
+<script>
+function generatePlan() {
+    let mood = document.getElementById("mood").value;
+
+    let destinations = {
+        relaxed: ["Kyoto, Japan 🌸", "Santorini, Greece 🌊", "Bali, Indonesia 🌴"],
+        adventurous: ["Queenstown, New Zealand 🏔️", "Patagonia, Chile 🧊", "Iceland ❄️"],
+        romantic: ["Paris, France 🥐", "Venice, Italy 🚤", "Prague, Czech Republic 🌹"],
+        curious: ["Cairo, Egypt 🏺", "Tokyo, Japan 🏙️", "Istanbul, Turkey 🕌"],
+        energetic: ["New York City, USA 🗽", "Seoul, South Korea 🎶", "London, UK 🚇"]
+    };
+
+    let activities = {
+        relaxed: "Take a sunset walk, visit a spa, and enjoy quiet cafés.",
+        adventurous: "Go hiking, try zip-lining, or explore glaciers.",
+        romantic: "Enjoy candlelit dinners, boat rides, and scenic views.",
+        curious: "Visit museums, historic sites, and local markets.",
+        energetic: "Explore nightlife, concerts, and busy city streets."
+    };
+
+    let index = Math.floor(Math.random() * destinations[mood].length);
+    let place = destinations[mood][index];
+
+    document.getElementById("result").innerHTML =
+        "🌍 Destination: <b>" + place + "</b><br><br>" +
+        "🎯 Suggested Activity: " + activities[mood] + "<br><br>" +
+        "✨ AI Tip: Pack light, stay flexible, and enjoy the experience!";
+}
+</script>
+
+</body>
+</html>
