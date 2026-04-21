@@ -72,9 +72,16 @@ select, button {
 
 <script>
 function generatePlan() {
-    let mood = document.getElementById("mood").value;
+    const moodSelect = document.getElementById("mood");
 
-    let destinations = {
+    if (!moodSelect) {
+        console.log("Mood dropdown not found");
+        return;
+    }
+
+    let mood = moodSelect.value;
+
+    const destinations = {
         relaxed: ["Kyoto, Japan 🌸", "Santorini, Greece 🌊", "Bali, Indonesia 🌴"],
         adventurous: ["Queenstown, New Zealand 🏔️", "Patagonia, Chile 🧊", "Iceland ❄️"],
         romantic: ["Paris, France 🥐", "Venice, Italy 🚤", "Prague, Czech Republic 🌹"],
@@ -82,7 +89,7 @@ function generatePlan() {
         energetic: ["New York City, USA 🗽", "Seoul, South Korea 🎶", "London, UK 🚇"]
     };
 
-    let activities = {
+    const activities = {
         relaxed: "Take a sunset walk, visit a spa, and enjoy quiet cafés.",
         adventurous: "Go hiking, try zip-lining, or explore glaciers.",
         romantic: "Enjoy candlelit dinners, boat rides, and scenic views.",
@@ -95,7 +102,7 @@ function generatePlan() {
 
     document.getElementById("result").innerHTML =
         "🌍 Destination: <b>" + place + "</b><br><br>" +
-        "🎯 Suggested Activity: " + activities[mood] + "<br><br>"; 
+        "🎯 Suggested Activity: " + activities[mood];
 }
 </script>
 
